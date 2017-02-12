@@ -1,0 +1,806 @@
+Curl Results by Luis Otero and Jorge Aguiniga
+
+Default Curl User Agent: curl/7.52.1
+
+Differences between only -v and -v with -A with mobile agent:
+
+FaceBook: 
+Only curl agent returns a <!DocType html> document. 
+Mobile agent returns the header Location: https://m.facebook.com/?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr
+
+Google: 
+Google seems to have the same headers for both agents. 
+Mobile agent returns a document five times the size compared to the curl agent since it contains information and variables for “JavaScript Zlib and Deflate Library” and “zlib.hep.js”
+
+Yahoo:  
+Seems to be the same for both curl and mobile agents
+
+Wikipedia: 
+Seems to be the same for both curl and mobile agents, both agents return a 303 Moved Permanently
+Youtube:
+Only curl agent returns a massive <!DocType html> document. 
+Mobile agent returns the header Location: https://m.youtube.com/
+
+
+Transcripts of Curl request for FaceBook:
+
+C:\WINDOWS\system32>curl -v https://www.facebook.com/
+* timeout on name lookup is not supported
+*   Trying 31.13.77.36...
+* TCP_NODELAY set
+* Connected to www.facebook.com (31.13.77.36) port 443 (#0)
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 197 bytes...
+* schannel: sent initial handshake data: sent 197 bytes
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 3479 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 258 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.facebook.com
+> User-Agent: curl/7.52.1
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 13330
+* schannel: encrypted data buffer: offset 13330 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 1500 length 16384
+* schannel: encrypted data length: 11801
+* schannel: encrypted data cached: offset 11801 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 3000 length 16384
+* schannel: encrypted data length: 10272
+* schannel: encrypted data cached: offset 10272 length 17408
+* schannel: decrypted data length: 678
+* schannel: decrypted data added: 678
+* schannel: decrypted data cached: offset 3678 length 16384
+* schannel: encrypted data length: 9565
+* schannel: encrypted data cached: offset 9565 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 5178 length 16384
+* schannel: encrypted data length: 8036
+* schannel: encrypted data cached: offset 8036 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 6678 length 16384
+* schannel: encrypted data length: 6507
+* schannel: encrypted data cached: offset 6507 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 8178 length 16384
+* schannel: encrypted data length: 4978
+* schannel: encrypted data cached: offset 4978 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 9678 length 16384
+* schannel: encrypted data length: 3449
+* schannel: encrypted data cached: offset 3449 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 11178 length 16384
+* schannel: encrypted data length: 1920
+* schannel: encrypted data cached: offset 1920 length 17408
+* schannel: decrypted data length: 1500
+* schannel: decrypted data added: 1500
+* schannel: decrypted data cached: offset 12678 length 16384
+* schannel: encrypted data length: 391
+* schannel: encrypted data cached: offset 391 length 17408
+* schannel: decrypted data length: 362
+* schannel: decrypted data added: 362
+* schannel: decrypted data cached: offset 13040 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 13040 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 13040
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 200 OK
+< X-XSS-Protection: 0
+< public-key-pins-report-only: max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; pin-sha256="r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E="; pin-sha256="q4PO2G2cbkZhZ82+JgmRUyGMoAeozA+BSXVXQWB8XWQ="; report-uri="http://reports.fb.com/hpkp/"
+< Pragma: no-cache
+< Cache-Control: private, no-cache, no-store, must-revalidate
+< Expires: Sat, 01 Jan 2000 00:00:00 GMT
+< X-Content-Type-Options: nosniff
+< P3P: CP="Facebook does not have a P3P policy. Learn why here: http://fb.me/p3p"
+< Strict-Transport-Security: max-age=15552000; preload
+< X-Frame-Options: DENY
+< Set-Cookie: fr=0z3mqwr7Hq7XAsUmU..BYn4s4.FM.AAA.0.0.BYn4s4.AWUUCeLm; expires=Fri, 12-May-2017 22:07:52 GMT; Max-Age=7776000; path=/; domain=.facebook.com; httponly
+< Vary: Accept-Encoding
+< Content-Type: text/html
+< X-FB-Debug: hXJrIVb3/FZMWjWeWmZlCn3A+cxEgKVqdUKfwUSOXOYN70wYltEUatWyEEd1noRH9Bj9fErXy3rWjbaEjukGBA==
+< Date: Sat, 11 Feb 2017 22:07:52 GMT
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+<
+<!DOCTYPE html>
+...
+
+C:\WINDOWS\system32>curl -v https://www.facebook.com/ -A "Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G890A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36"
+* timeout on name lookup is not supported
+*   Trying 31.13.77.36...
+* TCP_NODELAY set
+* Connected to www.facebook.com (31.13.77.36) port 443 (#0)
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 197 bytes...
+* schannel: sent initial handshake data: sent 197 bytes
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 3478 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 258 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.facebook.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.facebook.com
+> User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G890A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 452
+* schannel: encrypted data buffer: offset 452 length 17408
+* schannel: decrypted data length: 423
+* schannel: decrypted data added: 423
+* schannel: decrypted data cached: offset 423 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 423 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 423
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 301 Moved Permanently
+< Vary: User-Agent
+< Expires: Sun, 11 Feb 2018 22:03:37 GMT
+< Location: https://m.facebook.com/?refsrc=https%3A%2F%2Fwww.facebook.com%2F&_rdr
+< Cache-Control: private; max-age: 31536000
+< Content-Type: text/html
+< X-FB-Debug: KddFpCYFrCThWbk1DF6FgGDbbUxAuLzS4zPl4qaGNbsQZ5rNxc1Ycx0EjrU2iF3od3DDbGwdODmi0k19vGTr7w==
+< Date: Sat, 11 Feb 2017 22:03:37 GMT
+< Connection: keep-alive
+< Content-Length: 0
+<
+* Curl_http_done: called premature == 0
+* Connection #0 to host www.facebook.com left intact
+
+
+Transcripts of Curl request for Google:
+
+C:\Users\Luis>curl -v https://www.google.com
+* Rebuilt URL to: https://www.google.com/
+* timeout on name lookup is not supported
+*   Trying 172.217.6.68...
+* TCP_NODELAY set
+* Connected to www.google.com (172.217.6.68) port 443 (#0)
+* schannel: SSL/TLS connection with www.google.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 195 bytes...
+* schannel: sent initial handshake data: sent 195 bytes
+* schannel: SSL/TLS connection with www.google.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.google.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 3505 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.google.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 262 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.google.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.google.com
+> User-Agent: curl/7.52.1
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 11732
+* schannel: encrypted data buffer: offset 11732 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 1401 length 16384
+* schannel: encrypted data length: 10302
+* schannel: encrypted data cached: offset 10302 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 2802 length 16384
+* schannel: encrypted data length: 8872
+* schannel: encrypted data cached: offset 8872 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 4203 length 16384
+* schannel: encrypted data length: 7442
+* schannel: encrypted data cached: offset 7442 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 5604 length 16384
+* schannel: encrypted data length: 6012
+* schannel: encrypted data cached: offset 6012 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 7005 length 16384
+* schannel: encrypted data length: 4582
+* schannel: encrypted data cached: offset 4582 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 8406 length 16384
+* schannel: encrypted data length: 3152
+* schannel: encrypted data cached: offset 3152 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 9807 length 16384
+* schannel: encrypted data length: 1722
+* schannel: encrypted data cached: offset 1722 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 11208 length 16384
+* schannel: encrypted data length: 292
+* schannel: encrypted data cached: offset 292 length 17408
+* schannel: decrypted data length: 263
+* schannel: decrypted data added: 263
+* schannel: decrypted data cached: offset 11471 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 11471 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 11471
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 200 OK
+< Date: Sun, 12 Feb 2017 00:41:59 GMT
+< Expires: -1
+< Cache-Control: private, max-age=0
+< Content-Type: text/html; charset=ISO-8859-1
+< P3P: CP="This is not a P3P policy! See https://www.google.com/support/accounts/answer/151657?hl=en for more info."
+< Server: gws
+< X-XSS-Protection: 1; mode=block
+< X-Frame-Options: SAMEORIGIN
+< Set-Cookie: NID=96=m-ogTlYxm6ZgNYxngILImfK6tNmkH5WbekS-8ECSH6UZmIEOrnLlViofWn2GpYolulw6U_Z8qfj4HlMBRe9ks7CODHPE5S9Y_z4ocK_xpOQaVn43RdS0JZ55-0l73bvVp5V7_ZXBsVv_2g; exp
+ires=Mon, 14-Aug-2017 00:41:59 GMT; path=/; domain=.google.com; HttpOnly
+< Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+< Accept-Ranges: none
+< Vary: Accept-Encoding
+< Transfer-Encoding: chunked
+<
+<!doctype html>
+…
+
+
+C:\Users\Luis>curl -v https://www.google.com -A "Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-N915A Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.28
+83.91 Mobile Safari/537.36"
+* Rebuilt URL to: https://www.google.com/
+* timeout on name lookup is not supported
+*   Trying 172.217.6.68...
+* TCP_NODELAY set
+* Connected to www.google.com (172.217.6.68) port 443 (#0)
+* schannel: SSL/TLS connection with www.google.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 195 bytes...
+* schannel: sent initial handshake data: sent 195 bytes
+* schannel: SSL/TLS connection with www.google.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.google.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 3505 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.google.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 262 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.google.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.google.com
+> User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-N915A Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 14300
+* schannel: encrypted data buffer: offset 14300 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 1401 length 16384
+* schannel: encrypted data length: 12870
+* schannel: encrypted data cached: offset 12870 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 2802 length 16384
+* schannel: encrypted data length: 11440
+* schannel: encrypted data cached: offset 11440 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 4203 length 16384
+* schannel: encrypted data length: 10010
+* schannel: encrypted data cached: offset 10010 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 5604 length 16384
+* schannel: encrypted data length: 8580
+* schannel: encrypted data cached: offset 8580 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 7005 length 16384
+* schannel: encrypted data length: 7150
+* schannel: encrypted data cached: offset 7150 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 8406 length 16384
+* schannel: encrypted data length: 5720
+* schannel: encrypted data cached: offset 5720 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 9807 length 16384
+* schannel: encrypted data length: 4290
+* schannel: encrypted data cached: offset 4290 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 11208 length 16384
+* schannel: encrypted data length: 2860
+* schannel: encrypted data cached: offset 2860 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 12609 length 16384
+* schannel: encrypted data length: 1430
+* schannel: encrypted data cached: offset 1430 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 14010 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 14010 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 14010
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 200 OK
+< Content-Type: text/html; charset=UTF-8
+< Strict-Transport-Security: max-age=86400
+< P3P: CP="This is not a P3P policy! See https://www.google.com/support/accounts/answer/151657?hl=en for more info."
+< Date: Sun, 12 Feb 2017 00:42:42 GMT
+< Server: gws
+< Cache-Control: private
+< X-XSS-Protection: 1; mode=block
+< X-Frame-Options: SAMEORIGIN
+< Expires: Sun, 12 Feb 2017 00:42:42 GMT
+< Set-Cookie: NID=96=W-Oi8t2KpEoaWDiCBB2J5Jwee5Kij5H2RBIgNgne-1Wrbl9CDxVNi6DTWupZbZLOmBhRCf8U_xuTB1IDJLRFQfuGptT-dWs9HqvJjKGWbLasFufsIufopRP6VjuilFjM; expires=Mon, 14-A
+ug-2017 00:42:42 GMT; path=/; domain=.google.com; HttpOnly
+< Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+< Accept-Ranges: none
+< Vary: Accept-Encoding
+< Transfer-Encoding: chunked
+<
+<!doctype html>
+...
+
+Transcripts of Curl request for Yahoo:
+
+C:\Users\Luis>curl -v https://www.yahoo.com
+* Rebuilt URL to: https://www.yahoo.com/
+* timeout on name lookup is not supported
+*   Trying 206.190.36.45...
+* TCP_NODELAY set
+* Connected to www.yahoo.com (206.190.36.45) port 443 (#0)
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 194 bytes...
+* schannel: sent initial handshake data: sent 194 bytes
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 4096 length 4096
+* schannel: encrypted data length: 4022
+* schannel: encrypted data buffer: offset 4022 length 4096
+* schannel: received incomplete message, need more data
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 5046 length 5046
+* schannel: encrypted data length: 98
+* schannel: encrypted data buffer: offset 98 length 5046
+* schannel: received incomplete message, need more data
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 1969 length 5046
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 274 length 5046
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.yahoo.com
+> User-Agent: curl/7.52.1
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 733
+* schannel: encrypted data buffer: offset 733 length 17408
+* schannel: decrypted data length: 704
+* schannel: decrypted data added: 704
+* schannel: decrypted data cached: offset 704 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 704 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 704
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 200 OK
+< Date: Sun, 12 Feb 2017 01:09:31 GMT
+< P3P: policyref="https://policies.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI
+ PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+< Strict-Transport-Security: max-age=2592000
+< X-Frame-Options: DENY
+< Set-Cookie: autorf=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=www.yahoo.com
+< Vary: Accept-Encoding
+< Content-Type: text/html; charset=UTF-8
+< Age: 0
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Via: http/1.1 ir12.fp.gq1.yahoo.com (ApacheTrafficServer)
+< Server: ATS
+< Cache-Control: no-store, no-cache, private, max-age=0
+< Expires: -1
+<
+* schannel: client wants to read 16384 bytes
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 3572
+* schannel: encrypted data buffer: offset 3572 length 17408
+* schannel: decrypted data length: 3392
+* schannel: decrypted data added: 3392
+* schannel: decrypted data cached: offset 3392 length 16384
+* schannel: encrypted data length: 151
+* schannel: encrypted data cached: offset 151 length 17408
+* schannel: decrypted data length: 122
+* schannel: decrypted data added: 122
+* schannel: decrypted data cached: offset 3514 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 3514 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 3514
+* schannel: decrypted data buffer: offset 0 length 16384
+<!DOCTYPE html>
+...
+
+C:\Users\Luis>curl -v https://www.yahoo.com -A "Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-N915A Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.288
+3.91 Mobile Safari/537.36"
+* Rebuilt URL to: https://www.yahoo.com/
+* timeout on name lookup is not supported
+*   Trying 206.190.36.105...
+* TCP_NODELAY set
+* Connected to www.yahoo.com (206.190.36.105) port 443 (#0)
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 194 bytes...
+* schannel: sent initial handshake data: sent 194 bytes
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 4096 length 4096
+* schannel: encrypted data length: 4022
+* schannel: encrypted data buffer: offset 4022 length 4096
+* schannel: received incomplete message, need more data
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 5046 length 5046
+* schannel: encrypted data length: 98
+* schannel: encrypted data buffer: offset 98 length 5046
+* schannel: received incomplete message, need more data
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 1969 length 5046
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 274 length 5046
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.yahoo.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.yahoo.com
+> User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-N915A Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 837
+* schannel: encrypted data buffer: offset 837 length 17408
+* schannel: decrypted data length: 808
+* schannel: decrypted data added: 808
+* schannel: decrypted data cached: offset 808 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 808 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 808
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 200 OK
+< Date: Sun, 12 Feb 2017 01:10:24 GMT
+< P3P: policyref="https://policies.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI
+ PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+< Strict-Transport-Security: max-age=2592000
+< X-Frame-Options: DENY
+< Set-Cookie: autorf=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain=www.yahoo.com
+< Vary: Accept-Encoding
+< Content-Type: text/html; charset=UTF-8
+< Age: 0
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Via: http/1.1 ir26.fp.gq1.yahoo.com (ApacheTrafficServer)
+< Server: ATS
+< Cache-Control: no-store, no-cache, private, max-age=0
+< Expires: -1
+< Set-Cookie: B=0hskqbpc9vdg0&b=3&s=nd; expires=Mon, 12-Feb-2018 01:10:24 GMT; path=/; domain=.yahoo.com
+<
+* schannel: client wants to read 16384 bytes
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 6738
+* schannel: encrypted data buffer: offset 6738 length 17408
+* schannel: decrypted data length: 3288
+* schannel: decrypted data added: 3288
+* schannel: decrypted data cached: offset 3288 length 16384
+* schannel: encrypted data length: 3421
+* schannel: encrypted data cached: offset 3421 length 17408
+* schannel: decrypted data length: 3392
+* schannel: decrypted data added: 3392
+* schannel: decrypted data cached: offset 6680 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 6680 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 6680
+* schannel: decrypted data buffer: offset 0 length 16384
+<!DOCTYPE html>
+…
+
+
+Transcripts of Curl request for Wikipedia:
+
+C:\WINDOWS\system32>curl -v https://en.wikipedia.org/
+* timeout on name lookup is not supported
+*   Trying 198.35.26.96...
+* TCP_NODELAY set
+* Connected to en.wikipedia.org (198.35.26.96) port 443 (#0)
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 197 bytes...
+* schannel: sent initial handshake data: sent 197 bytes
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 4096 length 4096
+* schannel: encrypted data length: 962
+* schannel: encrypted data buffer: offset 962 length 4096
+* schannel: received incomplete message, need more data
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 1782 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 51 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: en.wikipedia.org
+> User-Agent: curl/7.52.1
+> Accept: */*
+
+C:\WINDOWS\system32>curl -v https://en.wikipedia.org/ -A "Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G890A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36"
+* timeout on name lookup is not supported
+*   Trying 198.35.26.96...
+* TCP_NODELAY set
+* Connected to en.wikipedia.org (198.35.26.96) port 443 (#0)
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 197 bytes...
+* schannel: sent initial handshake data: sent 197 bytes
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 4096 length 4096
+* schannel: encrypted data length: 962
+* schannel: encrypted data buffer: offset 962 length 4096
+* schannel: received incomplete message, need more data
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 1782 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 51 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with en.wikipedia.org port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: en.wikipedia.org
+> User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G890A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 1280
+* schannel: encrypted data buffer: offset 1280 length 17408
+* schannel: decrypted data length: 1217
+* schannel: decrypted data added: 1217
+* schannel: decrypted data cached: offset 1217 length 16384
+* schannel: encrypted data length: 34
+* schannel: encrypted data cached: offset 34 length 17408
+* schannel: decrypted data length: 5
+* schannel: decrypted data added: 5
+* schannel: decrypted data cached: offset 1222 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 1222 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 1222
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 301 Moved Permanently
+< Date: Sat, 11 Feb 2017 22:38:34 GMT
+< Content-Type: text/html; charset=utf-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Server: mw1240.eqiad.wmnet
+< X-Powered-By: HHVM/3.12.7
+< X-Content-Type-Options: nosniff
+< Cache-control: s-maxage=1200, must-revalidate, max-age=0
+< P3P: CP="This is not a P3P policy! See https://en.wikipedia.org/wiki/Special:CentralAutoLogin/P3P for more info."
+< Vary: Accept-Encoding,X-Forwarded-Proto,Cookie,Authorization
+< Location: https://en.wikipedia.org/wiki/Main_Page
+< Last-Modified: Sat, 11 Feb 2017 22:36:54 GMT
+< Backend-Timing: D=18983 t=1486852614236549
+< X-Varnish: 736203045 736106626, 431032237 427996167, 920702850 922918562, 886031990 877684620
+< Via: 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4, 1.1 varnish-v4
+< Age: 100
+< X-Cache: cp1054 hit/6, cp2016 hit/1, cp4018 hit/1, cp4010 hit/418
+< X-Cache-Status: hit
+< Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+< Set-Cookie: WMF-Last-Access=11-Feb-2017;Path=/;HttpOnly;secure;Expires=Wed, 15 Mar 2017 12:00:00 GMT
+< X-Analytics: https=1;nocookies=1
+< X-Client-IP: 50.152.206.114
+< Set-Cookie: GeoIP=US:CA:San_Jose:37.32:-121.91:v4; Path=/; secure; Domain=.wikipedia.org
+<
+* Curl_http_done: called premature == 0
+* Connection #0 to host en.wikipedia.org left intact
+
+
+Transcripts of Curl request for Youtube:
+
+C:\WINDOWS\system32>curl -v https://www.youtube.com/
+* timeout on name lookup is not supported
+*   Trying 172.217.6.78...
+* TCP_NODELAY set
+* Connected to www.youtube.com (172.217.6.78) port 443 (#0)
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 196 bytes...
+* schannel: sent initial handshake data: sent 196 bytes
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 3996 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 262 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.youtube.com
+> User-Agent: curl/7.52.1
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 7621
+* schannel: encrypted data buffer: offset 7621 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 1401 length 16384
+* schannel: encrypted data length: 6191
+* schannel: encrypted data cached: offset 6191 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 2802 length 16384
+* schannel: encrypted data length: 4761
+* schannel: encrypted data cached: offset 4761 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 4203 length 16384
+* schannel: encrypted data length: 3331
+* schannel: encrypted data cached: offset 3331 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 5604 length 16384
+* schannel: encrypted data length: 1901
+* schannel: encrypted data cached: offset 1901 length 17408
+* schannel: decrypted data length: 1401
+* schannel: decrypted data added: 1401
+* schannel: decrypted data cached: offset 7005 length 16384
+* schannel: encrypted data length: 471
+* schannel: encrypted data cached: offset 471 length 17408
+* schannel: decrypted data length: 442
+* schannel: decrypted data added: 442
+* schannel: decrypted data cached: offset 7447 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 7447 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 7447
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 200 OK
+< Content-Type: text/html; charset=utf-8
+< Cache-Control: no-cache
+< X-XSS-Protection: 1; mode=block; report=https://www.google.com/appserve/security-bugs/log/youtube
+< Expires: Tue, 27 Apr 1971 19:44:06 EST
+< X-Frame-Options: SAMEORIGIN
+< X-Content-Type-Options: nosniff
+< Strict-Transport-Security: max-age=31536000
+< P3P: CP="This is not a P3P policy! See http://support.google.com/accounts/answer/151657?hl=en for more info."
+< Date: Sun, 12 Feb 2017 00:46:25 GMT
+< Server: YouTubeFrontEnd
+< Set-Cookie: VISITOR_INFO1_LIVE=ACrXTt9TOig; path=/; domain=.youtube.com; expires=Fri, 13-Oct-2017 12:39:25 GMT; httponly
+< Set-Cookie: YSC=A73J-94vDjQ; path=/; domain=.youtube.com; httponly
+< Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+< Accept-Ranges: none
+< Vary: Accept-Encoding
+< Transfer-Encoding: chunked
+<
+  <!DOCTYPE html> ...
+
+
+C:\WINDOWS\system32>curl -v https://www.youtube.com/ -A "Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G890A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36"
+* timeout on name lookup is not supported
+*   Trying 172.217.6.78...
+* TCP_NODELAY set
+* Connected to www.youtube.com (172.217.6.78) port 443 (#0)
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 1/3)
+* schannel: checking server certificate revocation
+* schannel: sending initial handshake data: sending 196 bytes...
+* schannel: sent initial handshake data: sent 196 bytes
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 3996 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 2/3)
+* schannel: encrypted data buffer: offset 262 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with www.youtube.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> GET / HTTP/1.1
+> Host: www.youtube.com
+> User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G890A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36
+> Accept: */*
+>
+* schannel: client wants to read 16384 bytes
+* schannel: encdata_buffer resized 17408
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: encrypted data got 749
+* schannel: encrypted data buffer: offset 749 length 17408
+* schannel: decrypted data length: 720
+* schannel: decrypted data added: 720
+* schannel: decrypted data cached: offset 720 length 16384
+* schannel: encrypted data buffer: offset 0 length 17408
+* schannel: decrypted data buffer: offset 720 length 16384
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 720
+* schannel: decrypted data buffer: offset 0 length 16384
+< HTTP/1.1 302 Found
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 0
+< Cache-Control: no-cache
+< P3P: CP="This is not a P3P policy! See http://support.google.com/accounts/answer/151657?hl=en for more info."
+< X-Content-Type-Options: nosniff
+< Expires: Tue, 27 Apr 1971 19:44:06 EST
+< Location: https://m.youtube.com/
+< X-XSS-Protection: 1; mode=block; report=https://www.google.com/appserve/security-bugs/log/youtube
+< Date: Sun, 12 Feb 2017 00:47:45 GMT
+< Server: YouTubeFrontEnd
+< Set-Cookie: YSC=o5Xpzzm3Rtg; path=/; domain=.youtube.com; httponly
+< Set-Cookie: VISITOR_INFO1_LIVE=Q8aS_70PvAM; path=/; domain=.youtube.com; expires=Fri, 13-Oct-2017 12:40:45 GMT; httponly
+< Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+<
+* Curl_http_done: called premature == 0
+* Connection #0 to host www.youtube.com left intact
