@@ -9,17 +9,56 @@
 			.upper{ color:red; }
 			.graduate { color:green; }
 			.title{ border-bottom: 7px solid grey;}
+			div.course_list {
+				border: 2px solid grey;
+			}
 			body {
             	background-color: #E3DEDB;
+            	margin-right: 5%;
+            	margin-left: 5%;
         	}
+        	div.page_heading {
+            	border-bottom: 7px solid grey;
+        	}
+      		span.sub_one {
+            	padding-right: 7px;
+            	border-right: 2px solid black;
+        	}
+        	div.nav_menu {
+            	padding-top: 15px;
+            	padding-bottom: 15px;
+            	border-bottom: 7px solid grey;
+        	}
+        	a.nav_menu_button {
+            	padding-left: 25px;
+            	padding-right: 25px;
+            	text-decoration: none !important;
+				color: black !important;
+        	}
+        	a.nav_menu_button:hover {
+        	    background-color: #BCC6CC;
+        	}
+        	a.title_link {
+				text-decoration: none !important;
+				color: black !important;
+			}
 		</style>
 
     </head>
-    <body>
+    	<body>
+       		<div class="page_heading">
+        	<h1><a class="title_link" href="home.html">Department of Computer Science</a></h1>
+        	<span class="sub_one">San Jose State University</span>
+        	<span>College of Science</span>
+    	</div>
+    	<div class="nav_menu">
+        	<a class="nav_menu_button" href="home.html">Home</a>
+        	<a class="nav_menu_button" href="faculty.html">Faculty</a>
+    	</div>
 		<div class="title">
 			<span style="text-indent:3%;"><h1>Course List:</h1></span>
 		</div>
-		<div style="border:2px solid black">
+		<div class="course_list">
 			<h2>
 				<ul>
 					Lower-Division Courses:
