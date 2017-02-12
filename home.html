@@ -7,28 +7,55 @@
 		<style>
 			.lower{ color:green;}
 			.upper{ color:red; }
-		</style>	
+			body {
+				background-color: #E3DEDB;
+				margin-left: 5%;
+				padding-right: 40%;
+			}
+			div.page_heading {
+				border-bottom: 7px solid grey;
+			}
+			span.sub_one {
+				padding-right: 7px;
+				border-right: 2px solid black;
+			}
+			div.nav_menu {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				border-bottom: 7px solid grey;
+			}
+			div.dep_definition {
+				padding-top: 15px;
+			}
+			a.nav_menu_button {
+				padding-left: 25px;
+				padding-right: 25px;
+			}
+			a.nav_menu_button:hover {
+				background-color: #BCC6CC;
+			}
+		</style>
     </head>
     <body>
-		<div>
+		<div class="page_heading">
 			<h1>Department of Computer Science</h1>
-			<span>San Jose State University</span>
+			<span class="sub_one">San Jose State University</span>
 			<span>College of Science</span>
 		</div>
-		<div>
-			<a href="faculty.html">Faculty</a>
-			<a href="courses.html">Courses</a>
+		<div class="nav_menu">
+			<a class="nav_menu_button" href="faculty.html">Faculty</a>
+			<a class="nav_menu_button" href="courses.html">Courses</a>
 		</div>
 		<div>
+			<p><b>Welcome to the SJSU Department of Computer Science</b></p>
 			<img src="img/cs_brain.png" />
 		</div>
 		<div class="dep_definition">
-			<blockquote>
-				The Department of Computer Science strives to provide the highest quality education in 
-				Computer Science at the undergraduate and graduate levels. We offer programs that lead 
-				to the Bachelor of Science degree (BSCS), and the Master of Science degree (MSCS). We 
-				also offer Computer Science Certificates in Hologram Management. Our Bachelor's degree in Computer 
-				Science is accredited by the Computing Accreditation Commission of ABET. Both programs, BSCS 
+				The Department of Computer Science strives to provide the highest quality education in
+				Computer Science at the undergraduate and graduate levels. We offer programs that lead
+				to the Bachelor of Science degree (BSCS), and the Master of Science degree (MSCS). We
+				also offer Computer Science Certificates in Hologram Management. Our Bachelor's degree in Computer
+				Science is accredited by the Computing Accreditation Commission of ABET. Both programs, BSCS
 				and MSCS, are accredited by the Western Association of Schools and Colleges (WASC). <br>
 				The Department of Computer Science currently offers the following programs jointly with the following departments;
 				<ul>
@@ -39,8 +66,6 @@
 					<li>Jointly with the Department of Kinesiology: Minor in Exo-Skeleton Engineering</li>
 					<li>Jointly with the Department of Art: Minor in Chrome Coloring</li>
 				</ul>
-\
-			</blockquote>
 		</div>
     </body>
 </html>
