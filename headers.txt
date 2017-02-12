@@ -1,0 +1,22 @@
+Headers and Descriptions by Luis Otero and Jorge Aguniga
+
+Location header: The location response header is used to redirect the client to a different URL rather than the URL that the 
+client requested. Location header is used with response 201 (CREATED) to redirect the client to new resources. This header is 
+used for 3xx responses for when the server wants to redirect the client to the server’s preferred URL for automatic redirection 
+for the sources.
+
+P3P Header: P3P stands for The Platform for Privacy Preferences Project which enabled websites to express their privacy practices. 
+P3P user agents were allowed to be informed about the sites practices using this header and to automate any decision making based on 
+the site’s practices. With this header, the users did not have to read the privacy policies of each site they visited. The organization 
+in charge of P3P stopped working and supporting the project since many modern browsers did not support P3P. Many sites like Facebook and 
+Google still have the P3P header but no longer use it instead the P3P header contains a link to the sites corresponding page about why 
+they don't support P3P anymore.
+
+Cache-control: The Cache-control header specifies directives for caching requests and responses. The directives for the requests do 
+not have to be the same as the ones for the response. Client directives include max-age=<seconds>, no-cache, no-store, no-transform, and 
+so on. Server directives include some of the ones like the client such as no-cache, no-store, and no-transform but also ones that the 
+client does not have such as public, private, and proxy-revalidate.
+
+X-XSS-Protection: This header is only available to use with Safari, Chrome, and Internet Explorer. This header is used to make pages stop 
+loading when a reflected cross-site scripting attack is detected on the page. The header is used mainly for old web browsers that don’t 
+support content-support-policy for disallowing in-line javascript.
