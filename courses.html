@@ -42,6 +42,23 @@
 				text-decoration: none !important;
 				color: black !important;
 			}
+			li {
+				font-weight: bold;
+				font-size: 1.25em;
+			}
+			h2, h3, h4, h5 {
+				font-size: 1.5em;
+				margin-left: 3%;
+			}
+			ul {
+				margin-left: 3%;
+			}
+			h1.course_list_title {
+				text-indent: 3%;
+			}
+			p.return {
+				text-align: center;
+			}
 		</style>
 
     </head>
@@ -56,13 +73,12 @@
         	<a class="nav_menu_button" href="faculty.html">Faculty</a>
     	</div>
 		<div class="title">
-			<span style="text-indent:3%;"><h1>Course List:</h1></span>
+			<h1 class="course_list_title">Course List</h1>
 		</div>
 		<div class="course_list">
-			<h2>
+			<h2>Lower-Division Courses:</h2>
+			<div>
 				<ul>
-					Lower-Division Courses:
-					<ul>
 						<li><span class="lower">CS 022:</span> Python Programming for Non-Majors</li>
 						<li><span class="lower">CS 023:</span> Introduction to Computer Science for Biologists and Chemists</li>
 						<li><span class="lower">CS 025:</span> The Digital World and Society</li>
@@ -81,8 +97,9 @@
 						<li><span class="lower">CS 090:</span> Introduction to Programming in C-Ultimate</li>
 						<li><span class="lower">CS 091:</span> Introduction to Programming in penguinZ</li>
 					</ul>
-					Upper-Division Courses:
-					<ul>
+			</div>
+			<h3>Upper-Division Courses:</h3>
+				<ul>
 						<li><span class="upper">CS 100W:</span> Technical Writing Workshop</li>
 						<li><span class="upper">CS 108:</span> Introduction to Game Studies</li>
 						<li><span class="upper">CS 116A:</span> Introduction to Computer Graphics</li>
@@ -99,7 +116,7 @@
 						<li><span class="upper">CS 157B:</span> Advanced Database Management Systems</li>
 						<li><span class="upper">CS 177:</span> Introduction to Artificial Memory Networks</li>
 					</ul>
-					Graduate Courses:
+			<h4>Graduate Courses:</h4>
 					<ul>
 						<li><span class="graduate">CS 216:</span> Geometric Modeling</li>
 						<li><span class="graduate">CS 218:</span> Topics in Memory Upload Computing</li>
@@ -119,11 +136,9 @@
 						<li><span class="graduate">CS 297A:</span> Masters Design Project: part 1</li>
 						<li><span class="graduate">CS 297B:</span> Msters Design Project: part 2</li>
 					</ul>
-				</ul>
-			</h2>
 		</div>
-		<div align="center">
+		<p class="return">
 			Back to <a href="home.html">CS Homepage</a>
-		</div>
+		</p>
     </body>
 </html>
